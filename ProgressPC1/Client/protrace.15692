@@ -1,0 +1,135 @@
+=====================================================
+PROGRESS stack trace as of Fri Nov 23 10:45:05 2018
+=====================================================
+
+Progress OpenEdge Release 11.7 build 1388 on WINNT 
+
+Startup parameters:
+-pf C:\Progress\OpenEdge\startup.pf,-cpinternal ISO8859-1,-cpstream ISO8859-1,-cpcoll Basic,-cpcase Basic,-d mdy,-numsep 44,-numdec 46,(end .pf),-wy,-nosplash,-debugalert,-inp 16000,-tok 4000,-rereadnolock,-s 200,-mmax 65534,-T C:/OpenEdge/WRK,-p C:\Progress\OpenEdge\oeide\eclipse\plugins\com.openedge.pdt.project_11.7.0.00\runtime\_server.p
+
+Exception code: E0434352 
+Fault address:  00007FFAA096A388 01:0000000000039388 C:\WINDOWS\System32\KERNELBASE.dll
+
+Registers:
+RAX:000000D2D2D78249
+RBX:0000000000000001
+RCX:000000D2D2D78210
+RDX:00007FFA00000012
+RSI:000000D2D2D788E8
+RDI:0000000000000005
+R8 :00000000AD8A0000
+R9 :000000D200000242
+R10:00000000A096A000
+R11:00007FFAA0930000
+R12:0000000000000080
+R13:00000000000B7000
+R14:0000002000001000
+R15:0000000001000000
+CS:RIP:0033:00007FFAA096A388
+SS:RSP:002B:000000D2D2D78770  RBP:000000D2D2D78B50
+DS:002B  ES:002B  FS:0053  GS:002B
+Flags:00000206
+
+
+Debugging dll: C:\Progress\OpenEdge\bin\DBGHELP.DLL
+Symbol Path:
+ C:\Progress\OpenEdge\bin;C:\Progress\OpenEdge\pdbfiles
+
+
+Call Stack:
+Address           Frame
+00007FFAA096A388  000000D2D2D78840  RaiseException+68
+00007FFA6D95A83A  000000D2D2D78940  DllRegisterServerInternal+3079A
+00007FFA6D95AA9A  000000D2D2D78AF0  DllRegisterServerInternal+309FA
+00007FFA74288A1B  000000D2D2D78B50  0003:0000000000161A1B C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Drawing\d56a87ba57efe8f63335298ab1cb8772\System.Drawing.ni.dll
+00007FFA6B363A0F  000000D2D2D78BD0  0003:0000000000950A0F C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6B34FC59  000000D2D2D78CC0  0003:000000000093CC59 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6B35049D  000000D2D2D78D00  0003:000000000093D49D C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA42253  000000D2D2D78D40  0003:000000000002F253 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA3B5DB  000000D2D2D78D80  0003:00000000000285DB C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA3B465  000000D2D2D78E40  0003:0000000000028465 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA47BE8  000000D2D2D78EB0  0003:0000000000034BE8 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA3A883  000000D2D2D78F70  0003:0000000000027883 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6B354CD3  000000D2D2D78FC0  0003:0000000000941CD3 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6B134DC5  000000D2D2D79040  0003:0000000000721DC5 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6B0B1101  000000D2D2D790B0  0003:000000000069E101 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6D90222E  000000D2D2D79140  0001:000000000000122E C:\Windows\Microsoft.NET\Framework64\v4.0.30319\clr.dll
+00007FFAA1C76D41  000000D2D2D792D0  CallWindowProcW+4C1
+00007FFAA1C76A1C  000000D2D2D79330  CallWindowProcW+19C
+00007FFAA1C84C90  000000D2D2D79390  IsThreadMessageQueueAttached+A0
+00007FFAA3F8DC14  000000D2D2D79438  KiUserCallbackDispatcher+24
+00007FFAA1361504  000000D2D2D79440  NtUserSetWindowPos+14
+00007FFA6AAB91A0  000000D2D2D79510  0003:00000000000A61A0 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA40941  000000D2D2D795C0  0003:000000000002D941 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA7EB72  000000D2D2D79650  0003:000000000006BB72 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA80521  000000D2D2D796F0  0003:000000000006D521 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA7FDE4  000000D2D2D79860  0003:000000000006CDE4 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA42FEB  000000D2D2D79920  0003:000000000002FFEB C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA42E7A  000000D2D2D79950  0003:000000000002FE7A C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA42E17  000000D2D2D79990  0003:000000000002FE17 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA42D63  000000D2D2D799D0  0003:000000000002FD63 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA4257B  000000D2D2D79A20  0003:000000000002F57B C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA4238B  000000D2D2D79A70  0003:000000000002F38B C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA42253  000000D2D2D79AB0  0003:000000000002F253 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA3B5DB  000000D2D2D79AF0  0003:00000000000285DB C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA3B465  000000D2D2D79BB0  0003:0000000000028465 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA3A848  000000D2D2D79C70  0003:0000000000027848 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6B134DC5  000000D2D2D79CF0  0003:0000000000721DC5 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6B0B1101  000000D2D2D79D60  0003:000000000069E101 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6D90222E  000000D2D2D79DF0  0001:000000000000122E C:\Windows\Microsoft.NET\Framework64\v4.0.30319\clr.dll
+00007FFAA1C76D41  000000D2D2D79F80  CallWindowProcW+4C1
+00007FFAA1C7634E  000000D2D2D7A010  SendMessageW+36E
+00007FFAA1C74764  000000D2D2D7A110  GetWindowTextW+854
+00007FFAA1C73ED2  000000D2D2D7A150  UpdateWindow+F2
+00007FFA9E8B4704  000000D2D2D7A2D0  HitTestThemeBackground+5CF4
+00007FFA9E8B34E1  000000D2D2D7A310  HitTestThemeBackground+4AD1
+00007FFAA1C74414  000000D2D2D7A380  GetWindowTextW+504
+00007FFAA1C76D41  000000D2D2D7A510  CallWindowProcW+4C1
+00007FFAA1C7690B  000000D2D2D7A560  CallWindowProcW+8B
+00007FFA6AA3B20C  000000D2D2D7A610  0003:000000000002820C C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA47BE0  000000D2D2D7A680  0003:0000000000034BE0 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA3A883  000000D2D2D7A740  0003:0000000000027883 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6B134DC5  000000D2D2D7A7C0  0003:0000000000721DC5 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6B0B1101  000000D2D2D7A830  0003:000000000069E101 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6D90222E  000000D2D2D7A8C0  0001:000000000000122E C:\Windows\Microsoft.NET\Framework64\v4.0.30319\clr.dll
+00007FFAA1C76D41  000000D2D2D7AA50  CallWindowProcW+4C1
+00007FFAA1C76A1C  000000D2D2D7AAB0  CallWindowProcW+19C
+00007FFAA1C84C90  000000D2D2D7AB10  IsThreadMessageQueueAttached+A0
+00007FFAA3F8DC14  000000D2D2D7ABB8  KiUserCallbackDispatcher+24
+00007FFAA1361504  000000D2D2D7ABC0  NtUserSetWindowPos+14
+00007FFA6AAB91A0  000000D2D2D7AC90  0003:00000000000A61A0 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA40941  000000D2D2D7AD40  0003:000000000002D941 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6B3A4F2D  000000D2D2D7ADC0  0003:0000000000991F2D C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA403E0  000000D2D2D7AE10  0003:000000000002D3E0 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA9E0FC  000000D2D2D7AE50  0003:000000000008B0FC C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6B3A1AC3  000000D2D2D7AEF0  0003:000000000098EAC3 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6AA54A84  000000D2D2D7AF80  0003:0000000000041A84 C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System.Windows.Forms\a8f8eef9e281ad0ac06dc269147ae72c\System.Windows.Forms.ni.dll
+00007FFA6BA555AA  000000D2D2D7AFB0  0003:00000000000D95AA C:\WINDOWS\assembly\NativeImages_v4.0.30319_64\System\8ff4bf965a60a85a0598226bf67e993a\System.ni.dll
+00007FFA0E74B6E1  000000D2D2D7AFB8  0000:0000000000000000 
+000001D8B15F2F88  000000D2D2D7AFC0  0000:0000000000000000 
+
+
+** ABL Stack Trace **
+
+--> C:\Progress\OpenEdge\oeide\eclipse\plugins\com.openedge.pdt.project_11.7.0.00\runtime\_server.p at line 174  (C:\Progress\OpenEdge\oeide\eclipse\plugins\com.openedge.pdt.project_11.7.0.00\runtime\_server.p)
+
+** Persistent procedures/Classes **
+
+Handle  File Name
+001011  c:\progress\openedge\oeide\eclipse\plugins\com.openedge.pdt.ve_11.7.0.00\runtime\_ideclrmanager.p
+001009  c:\progress\openedge\oeide\eclipse\plugins\com.openedge.pdt.project_11.7.0.00\runtime\_serverdefault.p
+001008  c:\progress\openedge\oeide\eclipse\plugins\com.openedge.pdt.ve_11.7.0.00\runtime\_ideveruntime.p
+001007  c:\progress\openedge\oeide\eclipse\plugins\com.openedge.pdt.text_11.7.0.00\runtime\_idetxtruntime.p
+001006  c:\progress\openedge\oeide\eclipse\plugins\com.openedge.pdt.project_11.7.0.00\runtime\_idewsruntime.p
+001005  c:\progress\openedge\oeide\eclipse\plugins\com.openedge.pdt.project_11.7.0.00\runtime\_idedbruntime.p
+001004  c:\progress\openedge\oeide\eclipse\plugins\com.openedge.pdt.oestudio_11.7.0.00\runtime\_abruntime.p
+001002  C:\Progress\OpenEdge\oeide\eclipse\plugins\com.openedge.pdt.project_11.7.0.00\runtime\_socketclient.p
+001000  C:\Progress\OpenEdge\oeide\eclipse\plugins\com.openedge.pdt.project_11.7.0.00\runtime\_oeidecontext.p
+
+** PROPATH **
+C:\Users\linas\Documents\Git\Progress1\ProgressPC1\Client\src,C:\Users\linas\Documents\Git\Progress1\ProgressPC1\Client,C:\Progress\OpenEdge\gui\,C:\Progress\OpenEdge\gui\adecomm.pl,C:\Progress\OpenEdge\gui\adecomp.pl,C:\Progress\OpenEdge\gui\adedict.pl,C:\Progress\OpenEdge\gui\adeedit.pl,C:\Progress\OpenEdge\gui\adeicon.pl,C:\Progress\OpenEdge\gui\adeshar.pl,C:\Progress\OpenEdge\gui\adeuib.pl,C:\Progress\OpenEdge\gui\adeweb.pl,C:\Progress\OpenEdge\gui\adexml.pl,C:\Progress\OpenEdge\gui\dataadmin.pl,C:\Progress\OpenEdge\gui\prodict.pl,C:\Progress\OpenEdge\gui\protools.pl,C:\Progress\OpenEdge\gui\OpenEdge.Core.pl,C:\Progress\OpenEdge\gui\OpenEdge.BusinessLogic.pl,C:\Progress\OpenEdge\gui\netlib\OpenEdge.Net.pl,C:\Progress\OpenEdge,C:\Progress\OpenEdge\bin,C:\Progress\OpenEdge\gui,C:\Progress\OpenEdge\gui\ablunit.pl,C:\Progress\OpenEdge\gui\adedesk.pl,C:\Progress\OpenEdge\gui\aderes.pl,C:\Progress\OpenEdge\gui\OpenEdge.ServerAdmin.pl
+
+** Databases (logical/type/physical) **
+   sports2000          PROGRESS  sports2000
+
+** End of Protrace **

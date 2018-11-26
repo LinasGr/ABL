@@ -1,0 +1,485 @@
+ 
+ /*------------------------------------------------------------------------
+    File        : Forma1
+    Purpose     : 
+    Syntax      : 
+    Description : 
+    Author(s)   : linas
+    Created     : Thu Nov 22 10:51:24 EET 2018
+    Notes       : 
+  ----------------------------------------------------------------------*/
+
+USING Progress.Lang.*.
+USING Progress.Windows.Form.
+
+BLOCK-LEVEL ON ERROR UNDO, THROW.
+
+CLASS Forma1 INHERITS Form: 
+    
+    define private variable bindingSource1 as Progress.Data.BindingSource no-undo.
+    define private variable button_Delete as System.Windows.Forms.Button no-undo.
+    define private variable button_EditLine as System.Windows.Forms.Button no-undo.
+    define private variable button_Refresh as System.Windows.Forms.Button no-undo.
+    DEFINE PRIVATE VARIABLE components AS System.ComponentModel.IContainer NO-UNDO.
+    define private variable errorProvider1 as System.Windows.Forms.ErrorProvider no-undo.
+    define private variable label2 as System.Windows.Forms.Label no-undo.
+    define private variable label1 as System.Windows.Forms.Label no-undo.
+    define private variable linenumDataGridViewTextBoxColumn as System.Windows.Forms.DataGridViewTextBoxColumn no-undo.
+    define private variable itemnumDataGridViewTextBoxColumn as System.Windows.Forms.DataGridViewTextBoxColumn no-undo.
+    define private variable extendedPriceDataGridViewTextBoxColumn as System.Windows.Forms.DataGridViewTextBoxColumn no-undo.
+    define private variable discountDataGridViewTextBoxColumn as System.Windows.Forms.DataGridViewTextBoxColumn no-undo.
+    define private variable dataGridView_OrderLine as System.Windows.Forms.DataGridView no-undo.
+    DEFINE PRIVATE VARIABLE listBox_Customers AS System.Windows.Forms.ListBox NO-UNDO.
+    DEFINE PRIVATE VARIABLE listBox_Orders AS System.Windows.Forms.ListBox NO-UNDO.
+    define private variable qtyDataGridViewTextBoxColumn as System.Windows.Forms.DataGridViewTextBoxColumn no-undo.
+    define private variable priceDataGridViewTextBoxColumn as System.Windows.Forms.DataGridViewTextBoxColumn no-undo.
+    define private variable ordernumDataGridViewTextBoxColumn as System.Windows.Forms.DataGridViewTextBoxColumn no-undo.
+    define private variable orderLineStatusDataGridViewTextBoxColumn as System.Windows.Forms.DataGridViewTextBoxColumn no-undo.
+    define buffer bCustomer for Customer.
+    define buffer bOrders for Order.
+    define variable hGridHandle as handle no-undo.
+    define private variable textBox_OrderNo as System.Windows.Forms.TextBox no-undo.
+    define private variable textBox_LineNo as System.Windows.Forms.TextBox no-undo.
+        
+    CONSTRUCTOR PUBLIC Forma1 (  ):
+                
+        SUPER().
+        InitializeComponent().
+        InitializeData().
+        THIS-OBJECT:ComponentsCollection:ADD(THIS-OBJECT:components).
+        CATCH e AS Progress.Lang.Error:
+            UNDO, THROW e.
+        END CATCH.
+
+    END CONSTRUCTOR.
+
+	/*------------------------------------------------------------------------------
+	 Purpose:
+	 Notes:
+	------------------------------------------------------------------------------*/
+	@VisualDesigner.
+	method private void button1_Click( input sender as System.Object, input e as System.EventArgs ):
+		
+/*		message textBox_OrderNo:Text skip*/
+/*		         textBox_LineNo:Text     */
+/*		         view-as alert-box.      */
+        if textBox_LineNo:Text="" or textBox_OrderNo:Text="" then
+        do:
+            message "Order number or Line number not added" view-as alert-box.
+            return.
+        end.
+
+		define variable DialogForm as EditLineForm NO-UNDO.
+		DialogForm=new EditLineForm(textBox_OrderNo:Text,textBox_LineNo:Text).
+		DialogForm:Show().
+		dataGridView_OrderLine:Refresh().
+		return.
+
+	end method.
+
+	/*------------------------------------------------------------------------------
+	 Purpose:
+	 Notes:
+	------------------------------------------------------------------------------*/
+	@VisualDesigner.
+	method private void button_Delete_Click( input sender as System.Object, input e as System.EventArgs ):
+		if not textBox_OrderNo:Text="" then
+		do:
+            if textBox_LineNo:text="" then
+            do:
+                delete  OrderLine where OrderLine.Ordernum=integer(textBox_OrderNo:Text)
+                exclusive-lock no-error.
+                validate OrderLine.
+            end.
+            else
+            do:
+                delete  OrderLine Where OrderLine.Ordernum=integer (textBox_OrderNo:Text) and OrderLine.Linenum=integet(textBox_LineNo:Text)
+                                exclusive-lock no-error.
+                validate OrderLine.
+            end.
+		end.
+		return.
+
+	end method.
+
+	/*------------------------------------------------------------------------------
+	 Purpose:
+	 Notes:
+	------------------------------------------------------------------------------*/
+	@VisualDesigner.
+	method private void button_Refresh_Click( input sender as System.Object, input e as System.EventArgs ):
+	    if listBox_Orders:SelectedItem  = ?  then
+	    return.
+		DataGridFill().
+		return.
+
+	end method.
+
+    /*------------------------------------------------------------------------------
+     Purpose:
+     Notes:
+    ------------------------------------------------------------------------------*/
+
+    method public void DataGridFill(  ):
+        
+        
+        create query hGridHandle.
+        hGridHandle:set-buffers (BUFFER OrderLine:handle).
+        hGridHandle:query-prepare ("FOR EACH OrderLine where Ordernum = " + string(listBox_Orders:SelectedItem)).
+        hGridHandle:query-open ().
+        bindingSource1:handle=hGridHandle.
+        return.
+
+    end method.
+
+	/*------------------------------------------------------------------------------
+	 Purpose:
+	 Notes:
+	------------------------------------------------------------------------------*/
+	@VisualDesigner.
+	method private void dataGridView_OrderLine_CellContentClick( input sender as System.Object, input e as System.Windows.Forms.DataGridViewCellEventArgs ):
+/*		textBox_LineNo:Text=*/
+		return.
+
+	end method.
+
+	/*------------------------------------------------------------------------------
+	 Purpose:
+	 Notes:
+	------------------------------------------------------------------------------*/
+	@VisualDesigner.
+	method private void dataGridView_OrderLine_CellDoubleClick( input sender as System.Object, input e as System.Windows.Forms.DataGridViewCellEventArgs ):
+/*		textBox_OrderNo:Text=dataGridView_OrderLine:SelectedRows:*/
+		return.
+
+	end method.
+
+    METHOD PRIVATE VOID InitializeComponent(  ):
+        
+        /* NOTE: The following method is automatically generated.
+        
+        We strongly suggest that the contents of this method only be modified using the
+        Visual Designer to avoid any incompatible modifications.
+        
+        Modifying the contents of this method using a code editor will invalidate any support for this file. */
+        this-object:components = new System.ComponentModel.Container().
+        @VisualDesigner.FormMember (NeedsInitialize="true").
+        define variable tableDesc1 as Progress.Data.TableDesc no-undo.
+        tableDesc1 = new Progress.Data.TableDesc("OrderLine").
+        this-object:listBox_Customers = new System.Windows.Forms.ListBox().
+        this-object:listBox_Orders = new System.Windows.Forms.ListBox().
+        this-object:dataGridView_OrderLine = new System.Windows.Forms.DataGridView().
+        this-object:ordernumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn().
+        this-object:linenumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn().
+        this-object:itemnumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn().
+        this-object:priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn().
+        this-object:qtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn().
+        this-object:discountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn().
+        this-object:extendedPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn().
+        this-object:orderLineStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn().
+        this-object:bindingSource1 = new Progress.Data.BindingSource(this-object:components).
+        this-object:button_EditLine = new System.Windows.Forms.Button().
+        this-object:textBox_OrderNo = new System.Windows.Forms.TextBox().
+        this-object:textBox_LineNo = new System.Windows.Forms.TextBox().
+        this-object:errorProvider1 = new System.Windows.Forms.ErrorProvider(this-object:components).
+        this-object:label1 = new System.Windows.Forms.Label().
+        this-object:label2 = new System.Windows.Forms.Label().
+        this-object:button_Refresh = new System.Windows.Forms.Button().
+        this-object:button_Delete = new System.Windows.Forms.Button().
+        cast(this-object:dataGridView_OrderLine, System.ComponentModel.ISupportInitialize):BeginInit().
+        cast(this-object:bindingSource1, System.ComponentModel.ISupportInitialize):BeginInit().
+        cast(this-object:errorProvider1, System.ComponentModel.ISupportInitialize):BeginInit().
+        this-object:SuspendLayout().
+        /*  */
+        /* listBox_Customers */
+        /*  */
+        this-object:listBox_Customers:FormattingEnabled = true.
+        this-object:listBox_Customers:ItemHeight = 16.
+        this-object:listBox_Customers:Location = new System.Drawing.Point(12, 12).
+        this-object:listBox_Customers:Name = "listBox_Customers".
+        this-object:listBox_Customers:Size = new System.Drawing.Size(258, 228).
+        this-object:listBox_Customers:TabIndex = 1.
+        this-object:listBox_Customers:SelectedIndexChanged:Subscribe(this-object:listBox_Customers_SelectedIndexChanged).
+        /*  */
+        /* listBox_Orders */
+        /*  */
+        this-object:listBox_Orders:FormattingEnabled = true.
+        this-object:listBox_Orders:ItemHeight = 16.
+        this-object:listBox_Orders:Location = new System.Drawing.Point(276, 12).
+        this-object:listBox_Orders:Name = "listBox_Orders".
+        this-object:listBox_Orders:Size = new System.Drawing.Size(272, 228).
+        this-object:listBox_Orders:TabIndex = 2.
+        this-object:listBox_Orders:SelectedIndexChanged:Subscribe(this-object:listBox_Orders_SelectedIndexChanged).
+        /*  */
+        /* dataGridView_OrderLine */
+        /*  */
+        this-object:dataGridView_OrderLine:AllowUserToAddRows = false.
+        this-object:dataGridView_OrderLine:AllowUserToDeleteRows = false.
+        define variable nestedvar0 as System.Windows.Forms.AnchorStyles no-undo.
+        nestedvar0 = cast(Progress.Util.EnumHelper:Or(cast(Progress.Util.EnumHelper:Or(System.Windows.Forms.AnchorStyles:Top, System.Windows.Forms.AnchorStyles:Bottom), System.Windows.Forms.AnchorStyles), System.Windows.Forms.AnchorStyles:Left), System.Windows.Forms.AnchorStyles).
+        this-object:dataGridView_OrderLine:Anchor = cast(Progress.Util.EnumHelper:Or(nestedvar0, System.Windows.Forms.AnchorStyles:Right), System.Windows.Forms.AnchorStyles).
+        this-object:dataGridView_OrderLine:AutoGenerateColumns = false.
+        this-object:dataGridView_OrderLine:ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode:AutoSize.
+        @VisualDesigner.FormMember (NeedsInitialize="false", InitializeArray="true").
+        define variable arrayvar0 as System.Windows.Forms.DataGridViewColumn extent 8 no-undo.
+        arrayvar0[1] = this-object:ordernumDataGridViewTextBoxColumn.
+        arrayvar0[2] = this-object:linenumDataGridViewTextBoxColumn.
+        arrayvar0[3] = this-object:itemnumDataGridViewTextBoxColumn.
+        arrayvar0[4] = this-object:priceDataGridViewTextBoxColumn.
+        arrayvar0[5] = this-object:qtyDataGridViewTextBoxColumn.
+        arrayvar0[6] = this-object:discountDataGridViewTextBoxColumn.
+        arrayvar0[7] = this-object:extendedPriceDataGridViewTextBoxColumn.
+        arrayvar0[8] = this-object:orderLineStatusDataGridViewTextBoxColumn.
+        this-object:dataGridView_OrderLine:Columns:AddRange(arrayvar0).
+        this-object:dataGridView_OrderLine:DataSource = this-object:bindingSource1.
+        this-object:dataGridView_OrderLine:Location = new System.Drawing.Point(1, 246).
+        this-object:dataGridView_OrderLine:Name = "dataGridView_OrderLine".
+        this-object:dataGridView_OrderLine:ReadOnly = true.
+        this-object:dataGridView_OrderLine:RowTemplate:Height = 24.
+        this-object:dataGridView_OrderLine:Size = new System.Drawing.Size(1097, 170).
+        this-object:dataGridView_OrderLine:TabIndex = 3.
+        this-object:dataGridView_OrderLine:CellContentClick:Subscribe(this-object:dataGridView_OrderLine_CellContentClick).
+        this-object:dataGridView_OrderLine:CellDoubleClick:Subscribe(this-object:dataGridView_OrderLine_CellDoubleClick).
+        /*  */
+        /* ordernumDataGridViewTextBoxColumn */
+        /*  */
+        this-object:ordernumDataGridViewTextBoxColumn:DataPropertyName = "Ordernum".
+        this-object:ordernumDataGridViewTextBoxColumn:HeaderText = "Order Num".
+        this-object:ordernumDataGridViewTextBoxColumn:Name = "ordernumDataGridViewTextBoxColumn".
+        this-object:ordernumDataGridViewTextBoxColumn:ReadOnly = true.
+        /*  */
+        /* linenumDataGridViewTextBoxColumn */
+        /*  */
+        this-object:linenumDataGridViewTextBoxColumn:DataPropertyName = "Linenum".
+        this-object:linenumDataGridViewTextBoxColumn:HeaderText = "Line Num".
+        this-object:linenumDataGridViewTextBoxColumn:Name = "linenumDataGridViewTextBoxColumn".
+        this-object:linenumDataGridViewTextBoxColumn:ReadOnly = true.
+        /*  */
+        /* itemnumDataGridViewTextBoxColumn */
+        /*  */
+        this-object:itemnumDataGridViewTextBoxColumn:DataPropertyName = "Itemnum".
+        this-object:itemnumDataGridViewTextBoxColumn:HeaderText = "Item Num".
+        this-object:itemnumDataGridViewTextBoxColumn:Name = "itemnumDataGridViewTextBoxColumn".
+        this-object:itemnumDataGridViewTextBoxColumn:ReadOnly = true.
+        /*  */
+        /* priceDataGridViewTextBoxColumn */
+        /*  */
+        this-object:priceDataGridViewTextBoxColumn:DataPropertyName = "Price".
+        this-object:priceDataGridViewTextBoxColumn:HeaderText = "Price".
+        this-object:priceDataGridViewTextBoxColumn:Name = "priceDataGridViewTextBoxColumn".
+        this-object:priceDataGridViewTextBoxColumn:ReadOnly = true.
+        /*  */
+        /* qtyDataGridViewTextBoxColumn */
+        /*  */
+        this-object:qtyDataGridViewTextBoxColumn:DataPropertyName = "Qty".
+        this-object:qtyDataGridViewTextBoxColumn:HeaderText = "Qty".
+        this-object:qtyDataGridViewTextBoxColumn:Name = "qtyDataGridViewTextBoxColumn".
+        this-object:qtyDataGridViewTextBoxColumn:ReadOnly = true.
+        /*  */
+        /* discountDataGridViewTextBoxColumn */
+        /*  */
+        this-object:discountDataGridViewTextBoxColumn:DataPropertyName = "Discount".
+        this-object:discountDataGridViewTextBoxColumn:HeaderText = "Discount".
+        this-object:discountDataGridViewTextBoxColumn:Name = "discountDataGridViewTextBoxColumn".
+        this-object:discountDataGridViewTextBoxColumn:ReadOnly = true.
+        /*  */
+        /* extendedPriceDataGridViewTextBoxColumn */
+        /*  */
+        this-object:extendedPriceDataGridViewTextBoxColumn:DataPropertyName = "ExtendedPrice".
+        this-object:extendedPriceDataGridViewTextBoxColumn:HeaderText = "Extended Price".
+        this-object:extendedPriceDataGridViewTextBoxColumn:Name = "extendedPriceDataGridViewTextBoxColumn".
+        this-object:extendedPriceDataGridViewTextBoxColumn:ReadOnly = true.
+        /*  */
+        /* orderLineStatusDataGridViewTextBoxColumn */
+        /*  */
+        this-object:orderLineStatusDataGridViewTextBoxColumn:DataPropertyName = "OrderLineStatus".
+        this-object:orderLineStatusDataGridViewTextBoxColumn:HeaderText = "Order Line Status".
+        this-object:orderLineStatusDataGridViewTextBoxColumn:Name = "orderLineStatusDataGridViewTextBoxColumn".
+        this-object:orderLineStatusDataGridViewTextBoxColumn:ReadOnly = true.
+        /*  */
+        /* bindingSource1 */
+        /*  */
+        this-object:bindingSource1:MaxDataGuess = 0.
+        this-object:bindingSource1:NoLOBs = false.
+        this-object:bindingSource1:Position = 0.
+        @VisualDesigner.FormMember (NeedsInitialize="false", InitializeArray="true").
+        define variable arrayvar1 as "Progress.Data.TableDesc[]" no-undo.
+        arrayvar1 = new "Progress.Data.TableDesc[]"(0).
+        tableDesc1:ChildTables = arrayvar1.
+        @VisualDesigner.FormMember (NeedsInitialize="false", InitializeArray="true").
+        define variable arrayvar2 as Progress.Data.ColumnPropDesc extent 8 no-undo.
+        arrayvar2[1] = new Progress.Data.ColumnPropDesc("Ordernum", "Order Num", Progress.Data.DataType:INTEGER).
+        arrayvar2[2] = new Progress.Data.ColumnPropDesc("Linenum", "Line Num", Progress.Data.DataType:INTEGER).
+        arrayvar2[3] = new Progress.Data.ColumnPropDesc("Itemnum", "Item Num", Progress.Data.DataType:INTEGER).
+        arrayvar2[4] = new Progress.Data.ColumnPropDesc("Price", "Price", Progress.Data.DataType:DECIMAL).
+        arrayvar2[5] = new Progress.Data.ColumnPropDesc("Qty", "Qty", Progress.Data.DataType:INTEGER).
+        arrayvar2[6] = new Progress.Data.ColumnPropDesc("Discount", "Discount", Progress.Data.DataType:INTEGER).
+        arrayvar2[7] = new Progress.Data.ColumnPropDesc("ExtendedPrice", "Extended Price", Progress.Data.DataType:DECIMAL).
+        arrayvar2[8] = new Progress.Data.ColumnPropDesc("OrderLineStatus", "Order Line Status", Progress.Data.DataType:CHARACTER).
+        tableDesc1:Columns = arrayvar2.
+        this-object:bindingSource1:TableSchema = tableDesc1.
+        /*  */
+        /* button_EditLine */
+        /*  */
+        this-object:button_EditLine:Location = new System.Drawing.Point(838, 69).
+        this-object:button_EditLine:Name = "button_EditLine".
+        this-object:button_EditLine:Size = new System.Drawing.Size(75, 23).
+        this-object:button_EditLine:TabIndex = 4.
+        this-object:button_EditLine:Text = "Edit line".
+        this-object:button_EditLine:UseCompatibleTextRendering = true.
+        this-object:button_EditLine:UseVisualStyleBackColor = true.
+        this-object:button_EditLine:Click:Subscribe(this-object:button1_Click).
+        /*  */
+        /* textBox_OrderNo */
+        /*  */
+        this-object:textBox_OrderNo:Location = new System.Drawing.Point(779, 12).
+        this-object:textBox_OrderNo:Name = "textBox_OrderNo".
+        this-object:textBox_OrderNo:Size = new System.Drawing.Size(203, 22).
+        this-object:textBox_OrderNo:TabIndex = 5.
+        /*  */
+        /* textBox_LineNo */
+        /*  */
+        this-object:textBox_LineNo:Location = new System.Drawing.Point(779, 41).
+        this-object:textBox_LineNo:Name = "textBox_LineNo".
+        this-object:textBox_LineNo:Size = new System.Drawing.Size(203, 22).
+        this-object:textBox_LineNo:TabIndex = 6.
+        /*  */
+        /* errorProvider1 */
+        /*  */
+        this-object:errorProvider1:ContainerControl = this-object.
+        /*  */
+        /* label1 */
+        /*  */
+        this-object:label1:Location = new System.Drawing.Point(673, 12).
+        this-object:label1:Name = "label1".
+        this-object:label1:Size = new System.Drawing.Size(100, 23).
+        this-object:label1:TabIndex = 7.
+        this-object:label1:Text = "Order number".
+        this-object:label1:UseCompatibleTextRendering = true.
+        /*  */
+        /* label2 */
+        /*  */
+        this-object:label2:Location = new System.Drawing.Point(673, 40).
+        this-object:label2:Name = "label2".
+        this-object:label2:Size = new System.Drawing.Size(100, 23).
+        this-object:label2:TabIndex = 8.
+        this-object:label2:Text = "Line number".
+        this-object:label2:UseCompatibleTextRendering = true.
+        /*  */
+        /* button_Refresh */
+        /*  */
+        this-object:button_Refresh:Location = new System.Drawing.Point(838, 217).
+        this-object:button_Refresh:Name = "button_Refresh".
+        this-object:button_Refresh:Size = new System.Drawing.Size(75, 23).
+        this-object:button_Refresh:TabIndex = 9.
+        this-object:button_Refresh:Text = "Refresh".
+        this-object:button_Refresh:UseCompatibleTextRendering = true.
+        this-object:button_Refresh:UseVisualStyleBackColor = true.
+        this-object:button_Refresh:Click:Subscribe(this-object:button_Refresh_Click).
+        /*  */
+        /* button_Delete */
+        /*  */
+        this-object:button_Delete:Location = new System.Drawing.Point(838, 98).
+        this-object:button_Delete:Name = "button_Delete".
+        this-object:button_Delete:Size = new System.Drawing.Size(75, 23).
+        this-object:button_Delete:TabIndex = 10.
+        this-object:button_Delete:Text = "Delete".
+        this-object:button_Delete:UseCompatibleTextRendering = true.
+        this-object:button_Delete:UseVisualStyleBackColor = true.
+        this-object:button_Delete:Click:Subscribe(this-object:button_Delete_Click).
+        /*  */
+        /* Forma1 */
+        /*  */
+        this-object:ClientSize = new System.Drawing.Size(1101, 417).
+        this-object:Controls:Add(this-object:button_Delete).
+        this-object:Controls:Add(this-object:button_Refresh).
+        this-object:Controls:Add(this-object:label2).
+        this-object:Controls:Add(this-object:label1).
+        this-object:Controls:Add(this-object:textBox_LineNo).
+        this-object:Controls:Add(this-object:textBox_OrderNo).
+        this-object:Controls:Add(this-object:button_EditLine).
+        this-object:Controls:Add(this-object:dataGridView_OrderLine).
+        this-object:Controls:Add(this-object:listBox_Orders).
+        this-object:Controls:Add(this-object:listBox_Customers).
+        this-object:Cursor = System.Windows.Forms.Cursors:Default.
+        this-object:Name = "Forma1".
+        this-object:Text = "Forma1".
+        cast(this-object:dataGridView_OrderLine, System.ComponentModel.ISupportInitialize):EndInit().
+        cast(this-object:bindingSource1, System.ComponentModel.ISupportInitialize):EndInit().
+        cast(this-object:errorProvider1, System.ComponentModel.ISupportInitialize):EndInit().
+        this-object:ResumeLayout(false).
+        this-object:PerformLayout().
+        catch e as Progress.Lang.Error:
+            undo, throw e.
+        end catch.
+    END METHOD.
+
+    /*------------------------------------------------------------------------------
+     Purpose:
+     Notes:
+    ------------------------------------------------------------------------------*/
+
+    METHOD PUBLIC VOID InitializeData(  ):
+        
+        for each bCustomer
+            no-lock:
+                
+            listBox_Customers:Items:Add(bCustomer.Name).
+     
+            
+        end.
+        RETURN.
+
+    END METHOD.
+
+	/*------------------------------------------------------------------------------
+	 Purpose:
+	 Notes:
+	------------------------------------------------------------------------------*/
+	@VisualDesigner.
+	METHOD PRIVATE VOID listBox_Customers_SelectedIndexChanged( INPUT sender AS System.Object, INPUT e AS System.EventArgs ):
+		
+/*		message string(listBox_Customers:SelectedItem) skip         */
+/*		  string(listBox_Customers:SelectedIndex) view-as alert-box.*/
+		  
+		  FIND First bCustomer where bCustomer.Name=string(listBox_Customers:SelectedItem)
+		  no-lock no-error.
+		  
+		  if not available bCustomer then
+		      message bCustomer.Name " have no orders." view-as alert-box.
+		  else
+		      do:
+		      listBox_Orders:Items:Clear().
+		
+		      for each bOrders
+		          where bOrders.CustNum= bCustomer.CustNum
+		           no-lock:
+		  
+		            listBox_Orders:Items:Add(string(bOrders.Ordernum)).
+		      
+		      end.
+		   end.
+		RETURN.
+
+	END METHOD.
+
+
+
+	/*------------------------------------------------------------------------------
+	 Purpose:
+	 Notes:
+	------------------------------------------------------------------------------*/
+	@VisualDesigner.
+	method private void listBox_Orders_SelectedIndexChanged( input sender as System.Object, input e as System.EventArgs ):
+/*		message string(listBox_Orders:SelectedItem) view-as alert-box.*/
+
+		DataGridFill().
+		return.
+
+	end method.
+
+    DESTRUCTOR PUBLIC Forma1 ( ):
+
+    END DESTRUCTOR.
+
+END CLASS.

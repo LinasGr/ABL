@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<libraryinfo path="C:/Users/linas/Documents/Git/Progress1/ProgressPC1/Client/src" type="PathEntry" ModificationStamp="1543208172783" FullName="src" lib_header_magic_number="2384638594569" lib_header_version="15">
+	<procedures>
+	</procedures>
+	<classes>
+		<pacakage name="">
+			<class name="Forma1" SourceFilePath="C:/Users/linas/Documents/Git/Progress1/ProgressPC1/Client/src/Forma1.cls" RfilePath="C:/Users/linas/Documents/Git/Progress1/ProgressPC1/Client/bin/Forma1.r" Abstract="false" Final="false" isInterface="false" isSerializable="false" SuperClassName="Progress.Windows.Form" InterfaceNames="" ImportedPackages=""></class>
+			<class name="EditLineForm" SourceFilePath="C:/Users/linas/Documents/Git/Progress1/ProgressPC1/Client/src/EditLineForm.cls" RfilePath="C:/Users/linas/Documents/Git/Progress1/ProgressPC1/Client/bin/EditLineForm.r" Abstract="false" Final="false" isInterface="false" isSerializable="false" SuperClassName="Progress.Windows.Form" InterfaceNames="" ImportedPackages=""></class>
+		</pacakage>
+	</classes>
+</libraryinfo>

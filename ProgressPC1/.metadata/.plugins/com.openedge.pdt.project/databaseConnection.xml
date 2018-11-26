@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/databaseConnection.xsd">
+<databaseconnection identifier="Database-1">
+<name>Database-1</name>
+<description>Sports2000</description>
+<physicalname>C:\db\sports2000.db</physicalname>
+<logicalname/>
+<aliases/>
+<group/>
+<host>localhost</host>
+<service>8910</service>
+<userID/>
+<password/>
+<connectionparameters/>
+<SQLIdentifier>-4767595a:1673a60146d:-78fb</SQLIdentifier>
+<autoStartServer>true</autoStartServer>
+<serverParameters>-db C:\db\sports2000.db -S 8910 </serverParameters>
+<autoShutdownServer>false</autoShutdownServer>
+<OEVersion>11.7</OEVersion>
+</databaseconnection>
+</root>

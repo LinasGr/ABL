@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<libraryinfo path="C:/Users/linas/Documents/Git/Progress1/Server/src" type="PathEntry" ModificationStamp="1542864011027" FullName="src" lib_header_magic_number="2384638594569" lib_header_version="15">
+	<procedures>
+		<relative path="Utility">
+			<procedure name="GenPO" SourceFilePath="C:/Users/linas/Documents/Git/Progress1/Server/src/Utility/GenPO.p" RfilePath="C:/Users/linas/Documents/Git/Progress1/Server/bin/Utility/GenPO.r"></procedure>
+			<procedure name="GenPO2" SourceFilePath="C:/Users/linas/Documents/Git/Progress1/Server/src/Utility/GenPO2.p" RfilePath="C:/Users/linas/Documents/Git/Progress1/Server/bin/Utility/GenPO2.r"></procedure>
+			<procedure name="GenPOProcs" SourceFilePath="C:/Users/linas/Documents/Git/Progress1/Server/src/Utility/GenPOProcs.p" RfilePath="C:/Users/linas/Documents/Git/Progress1/Server/bin/Utility/GenPOProcs.r"></procedure>
+		</relative>
+		<relative path="Test">
+			<procedure name="Proc1" SourceFilePath="C:/Users/linas/Documents/Git/Progress1/Server/src/Test/Proc1.p" RfilePath="C:/Users/linas/Documents/Git/Progress1/Server/bin/Test/Proc1.r"></procedure>
+		</relative>
+	</procedures>
+	<classes>
+		<pacakage name="Sandbox.TestClasses">
+			<class name="Sandbox.TestClasses.Department" SourceFilePath="C:/Users/linas/Documents/Git/Progress1/Server/src/Sandbox/TestClasses/Department.cls" RfilePath="C:/Users/linas/Documents/Git/Progress1/Server/bin/Sandbox/TestClasses/Department.r" Abstract="false" Final="false" isInterface="false" isSerializable="false" SuperClassName="Progress.Lang.Object" InterfaceNames="" ImportedPackages=""></class>
+			<class name="Sandbox.TestClasses.Employee" SourceFilePath="C:/Users/linas/Documents/Git/Progress1/Server/src/Sandbox/TestClasses/Employee.cls" RfilePath="C:/Users/linas/Documents/Git/Progress1/Server/bin/Sandbox/TestClasses/Employee.r" Abstract="false" Final="false" isInterface="false" isSerializable="false" SuperClassName="Progress.Lang.Object" InterfaceNames="" ImportedPackages=""></class>
+		</pacakage>
+	</classes>
+</libraryinfo>

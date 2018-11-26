@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<libraryinfo path="C:/Users/linas/Documents/Git/Progress1/Client/src" type="PathEntry" ModificationStamp="1542864011028" FullName="src" lib_header_magic_number="2384638594569" lib_header_version="15">
+	<procedures>
+		<relative path="Test">
+			<procedure name="Test_GenPO" SourceFilePath="C:/Users/linas/Documents/Git/Progress1/Client/src/Test/Test_GenPO.p" RfilePath="C:/Users/linas/Documents/Git/Progress1/Client/bin/Test/Test_GenPO.r"></procedure>
+			<procedure name="Test_GenPO2" SourceFilePath="C:/Users/linas/Documents/Git/Progress1/Client/src/Test/Test_GenPO2.p" RfilePath="C:/Users/linas/Documents/Git/Progress1/Client/bin/Test/Test_GenPO2.r"></procedure>
+			<procedure name="Test_GenPO_lib" SourceFilePath="C:/Users/linas/Documents/Git/Progress1/Client/src/Test/Test_GenPO_lib.p" RfilePath="C:/Users/linas/Documents/Git/Progress1/Client/bin/Test/Test_GenPO_lib.r"></procedure>
+		</relative>
+	</procedures>
+	<classes>
+	</classes>
+</libraryinfo>

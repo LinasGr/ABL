@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<libraryinfo path="C:/Users/linas/Documents/Git/Progress1/Server/bin" type="PathEntry" ModificationStamp="1542864011029" FullName="bin" lib_header_magic_number="2384638594569" lib_header_version="15">
+	<procedures>
+		<relative path="Utility">
+			<procedure name="GenPO" SourceFilePath="" RfilePath="C:/Users/linas/Documents/Git/Progress1/Server/bin/Utility/GenPO.r"></procedure>
+			<procedure name="GenPO2" SourceFilePath="" RfilePath="C:/Users/linas/Documents/Git/Progress1/Server/bin/Utility/GenPO2.r"></procedure>
+			<procedure name="GenPOProcs" SourceFilePath="" RfilePath="C:/Users/linas/Documents/Git/Progress1/Server/bin/Utility/GenPOProcs.r"></procedure>
+		</relative>
+		<relative path="Test">
+			<procedure name="Proc1" SourceFilePath="" RfilePath=""></procedure>
+			<procedure name="Proc1" SourceFilePath="" RfilePath="C:/Users/linas/Documents/Git/Progress1/Server/bin/Test/Proc1.r"></procedure>
+		</relative>
+	</procedures>
+	<classes>
+		<pacakage name="Sandbox.TestClasses">
+			<class name="Sandbox.TestClasses.Department" SourceFilePath="" RfilePath="C:/Users/linas/Documents/Git/Progress1/Server/bin/Sandbox/TestClasses/Department.r" Abstract="false" Final="false" isInterface="false" isSerializable="false" SuperClassName="Progress.Lang.Object" InterfaceNames="" ImportedPackages=""></class>
+			<class name="Sandbox.TestClasses.Employee" SourceFilePath="" RfilePath="C:/Users/linas/Documents/Git/Progress1/Server/bin/Sandbox/TestClasses/Employee.r" Abstract="false" Final="false" isInterface="false" isSerializable="false" SuperClassName="Progress.Lang.Object" InterfaceNames="" ImportedPackages=""></class>
+		</pacakage>
+	</classes>
+</libraryinfo>

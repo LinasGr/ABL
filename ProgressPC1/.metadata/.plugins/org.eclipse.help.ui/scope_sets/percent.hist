@@ -1,0 +1,4 @@
+#Thu Nov 22 15:08:49 EET 2018
+__DEFAULT__=false
+org.eclipse.help.ui.localSearch.master=true
+expression=percent

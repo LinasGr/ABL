@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="C:\Progress\OpenEdge" version="1.8.0_101">
+<bootpath>
+<entry path="C:\Progress\OpenEdge\jre\lib\resources.jar"/>
+<entry path="C:\Progress\OpenEdge\jre\lib\rt.jar"/>
+<entry path="C:\Progress\OpenEdge\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Progress\OpenEdge\jre\lib\jsse.jar"/>
+<entry path="C:\Progress\OpenEdge\jre\lib\jce.jar"/>
+<entry path="C:\Progress\OpenEdge\jre\lib\charsets.jar"/>
+<entry path="C:\Progress\OpenEdge\jre\lib\jfr.jar"/>
+<entry path="C:\Progress\OpenEdge\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Progress\OpenEdge\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Progress\OpenEdge\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>
